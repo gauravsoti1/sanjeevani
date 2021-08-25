@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const menuItemsComponent = menuItems.map((menuItem) => (
-  <Typography display="inline" variant="body2">
+const menuItemsComponent = menuItems.map((menuItem, index) => (
+  <Typography key={index} display="inline" variant="body2">
     {menuItem}
   </Typography>
 ));
@@ -70,7 +70,11 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const MenuItems = styled.div``;
+const MenuItems = styled.div`
+  display: flex;
+  flex-basis: 60%;
+  justify-content: space-evenly;
+`;
 
 const LogoContainer = styled.div`
   display: inline-block;

@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
+import Testimonials from '../components/Testimonials';
+import LocationComponent from '../components/LocationComponent';
 
 export default function Home() {
   return (
@@ -14,10 +16,9 @@ export default function Home() {
         <HeroSection />
         {/* </BannerContainer> */}
       </main>
-
-      <Footer>
-        
-      </Footer>
+      <Testimonials />
+      <LocationComponent />
+      <Footer></Footer>
     </Container>
   );
 }
@@ -42,4 +43,3 @@ const BannerContainer = styled.div`
   height: 50vh;
   position: relative;
 `;
-
