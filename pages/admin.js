@@ -1,5 +1,6 @@
 import React from 'react';
 import { signIn, useSession } from 'next-auth/client';
+import Blog from '../components/Blog';
 
 export default function Page() {
   const [session, loading] = useSession();
@@ -11,7 +12,7 @@ export default function Page() {
   return (
     <>
       {session ? (
-        <p>Super secret page!</p>
+        <Blog />
       ) : (
         <p>
           <p>You are not permitted to see this page.</p>

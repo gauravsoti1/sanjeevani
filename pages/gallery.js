@@ -1,6 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import GalleryComponent from '../components/GalleryComponent';
 import Header from '../components/Header';
 
 export default function gallery() {
@@ -12,6 +13,7 @@ export default function gallery() {
       <Typography variant="h2" color="primary">
         Our Gallery
       </Typography>
+      <GalleryComponent />
     </Container>,
   ];
 }

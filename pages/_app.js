@@ -5,6 +5,7 @@ import { CssBaseline } from '@material-ui/core';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 import { Provider } from 'next-auth/client';
+import 'simplemde/dist/simplemde.min.css';
 
 function MyApp({ Component, pageProps }) {
   return (
