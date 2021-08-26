@@ -27,6 +27,8 @@ export default function Blog() {
   const [instance, setInstance] = useState();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [description, setDescription] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
   async function submitHandler(e) {
@@ -79,6 +81,16 @@ export default function Blog() {
         label="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+      />
+      <TextField
+        label="Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <TextField
+        label="Thumbnail"
+        value={thumbnail}
+        onChange={(e) => setThumbnail(e.target.value)}
       />
       <textarea ref={textareaRef} />
       <Button disabled={submitting} type="submit">
