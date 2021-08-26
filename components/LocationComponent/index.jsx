@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
 
-export default function index() {
+export default function LocationComponent() {
   return (
     <Container>
       <AddressContainer>

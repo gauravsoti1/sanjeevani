@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import Testimonials from '../components/Testimonials';
 import LocationComponent from '../components/LocationComponent';
+import Services from '../components/Services';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         {/* </BannerContainer> */}
       </main>
+      <Services />
       <Testimonials />
       <LocationComponent />
       <Footer></Footer>

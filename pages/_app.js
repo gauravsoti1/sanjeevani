@@ -1,9 +1,10 @@
 // import "../styles/globals.css";
-import Head from "next/head";
-import { StylesProvider, MuiThemeProvider } from "@material-ui/core/styles";
-import { CssBaseline } from "@material-ui/core";
-import styled, { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+import Head from 'next/head';
+import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
+import { CssBaseline } from '@material-ui/core';
+import styled, { ThemeProvider } from 'styled-components';
+import theme from '../styles/theme';
+import { Provider } from 'next-auth/client';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -24,7 +25,9 @@ function MyApp({ Component, pageProps }) {
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            <Component {...pageProps} />
+            <Provider session={pageProps.session}>
+              <Component {...pageProps} />
+            </Provider>
           </ThemeProvider>
         </MuiThemeProvider>
       </StylesProvider>
