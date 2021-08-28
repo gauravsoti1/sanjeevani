@@ -14,7 +14,9 @@ const remarkGfm = dynamic(() => import('remark-gfm').then((module) => module), {
 export default function BlogView({ content, title, description }) {
   return (
     <div style={{ border: '1px solid grey' }}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} skipHtml={false}>
+        {content}
+      </ReactMarkdown>
     </div>
   );
 }

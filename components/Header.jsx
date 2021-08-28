@@ -54,7 +54,14 @@ export default function Header() {
   return (
     <Container>
       <LogoContainer>
-        <Image src="/logo.svg" alt="Sanjeevani Logo" layout="fill" />
+        <Image
+          width="1585"
+          height="420"
+          src="/logo.png"
+          alt="Sanjeevani Logo"
+          layout="responsive"
+          objectFit="contain"
+        />
       </LogoContainer>
       <MenuItems>{menuItemsComponent}</MenuItems>
     </Container>
@@ -78,8 +85,9 @@ const MenuItems = styled.div`
 
 const LogoContainer = styled.div`
   display: inline-block;
-  width: 30%;
+  width: 20%;
   position: relative;
-  height: 400%;
-  object-fit: cover;
+  object-fit: contain;
+  max-height: 100%;
+  padding: 0.5rem 1rem;
 `;
