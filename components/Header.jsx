@@ -57,6 +57,7 @@ export default function Header() {
           alt="Sanjeevani Logo"
           layout="responsive"
           objectFit="contain"
+          placeholder="blur"
         />
       </LogoContainer>
       <MenuItems>{menuItemsComponent}</MenuItems>

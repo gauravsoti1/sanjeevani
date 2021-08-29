@@ -50,6 +50,7 @@ export default function LocationComponent() {
               // height="499"
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
             />
           </MapImageContainer>
           <MapIframe
