@@ -1,7 +1,7 @@
 import { pink } from "@material-ui/core/colors";
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
-let theme = createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
       dark: "#6b8f23",
@@ -12,6 +12,11 @@ let theme = createMuiTheme({
       dark: "#ab003c",
       main: "#f50057",
       light: "#f73378",
+    },
+    blue: {
+      dark: '#003b82',
+      main: '#2464B2',
+      light: '#6191e5'
     },
     text: {
       primary: "rgba(0, 0, 0, 0.87)",

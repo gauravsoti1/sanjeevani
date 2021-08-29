@@ -1,49 +1,48 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Link, Toolbar, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import Image from 'next/image';
+import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 
 const TelephoneLink = styled.a`
-  color: ${({ theme }) => theme.palette.secondary.dark};
+  color: ${({ theme }) => theme.palette.secondary.main};
   text-decoration: none;
 `;
-
+const TelephoneLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
 const menuItems = [
   'Home',
   // TODO: add tel href only when it is on mobile
-  <TelephoneLink href="tel:+919254344556">+91-9254344556</TelephoneLink>,
+  <TelephoneLinkContainer key="telephoneMenuItem">
+    <AddIcCallIcon color="secondary" fontSize="small" />
+    <TelephoneLink href="tel:+919254344556">+91-9254344556</TelephoneLink>
+  </TelephoneLinkContainer>,
   'Team',
   'Specialities',
   'Gallery',
   'About Us',
 ];
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));
 
-const menuItemsComponent = menuItems.map((menuItem, index) => (
-  <Typography key={index} display="inline" variant="body2">
-    {menuItem}
-  </Typography>
-));
+const menuItemsComponent = menuItems.map((menuItem, index) =>
+  typeof menuItem === 'string' ? (
+    <Typography key={index} display="inline" variant="body1">
+      {menuItem}
+    </Typography>
+  ) : (
+    menuItem
+  )
+);
 
 export default function Header() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const hambugerIcon = (
     <IconButton
-      className={classes.menuButton}
+      // className={classes.menuButton}
       edge="start"
       color="inherit"
       aria-label="menu"
@@ -75,6 +74,7 @@ const Container = styled.div`
   height: 10vh;
   align-items: center;
   width: 100%;
+  z-index: 5;
 `;
 
 const MenuItems = styled.div`

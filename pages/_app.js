@@ -6,7 +6,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 import { Provider } from 'next-auth/client';
 import 'simplemde/dist/simplemde.min.css';
-
+import Header from '../components/Header';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -27,7 +27,10 @@ function MyApp({ Component, pageProps }) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <Provider session={pageProps.session}>
-              <Component {...pageProps} />
+              <Container>
+                <Header />
+                <Component {...pageProps} />
+              </Container>
             </Provider>
           </ThemeProvider>
         </MuiThemeProvider>
@@ -35,5 +38,12 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+const Container = styled.div`
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+`;
 
 export default MyApp;

@@ -4,14 +4,13 @@ import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
-import Testimonials from '../components/Testimonials';
 import LocationComponent from '../components/LocationComponent';
 import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
 
 export default function Home() {
   return (
     <Container>
-      <Header />
       <main>
         {/* <BannerContainer> */}
         <HeroSection />
