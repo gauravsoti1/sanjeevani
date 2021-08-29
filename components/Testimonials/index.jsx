@@ -2,6 +2,7 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
 import Section from '../Section';
+import StyledTypography from '../StyledTypography';
 import Testimonial from './Testimonial';
 import VideoTestimonial from './VideoTestimonial';
 
@@ -18,13 +19,13 @@ export default function Testimonials() {
     <StyledSection>
       <Container>
         <ContentNavigation>
-          <Typography color="common.blue" variant="h4">
-            Patients' <PrimaryColorSpan>Experiences</PrimaryColorSpan>
-          </Typography>
-          <Typography variant="h4">
-            We are happy that you are satisfied with our services. Let's read
-            about our patients' experiences
-          </Typography>
+          <StyledTypography gutterBottom color="white" variant="h3">
+            Patient's Experience
+          </StyledTypography>
+          <StyledTypography color="rgba(255,255,255, 0.9)" variant="h6">
+            We are happy that you are satisfied with our services. Let's watch
+            our patient's experience
+          </StyledTypography>
         </ContentNavigation>
         <TestimonialsContainer>
           {/* <Testimonial {...testimonial} /> */}
@@ -39,18 +40,25 @@ export default function Testimonials() {
 const StyledSection = styled(Section)`
   background: ${(props) => props.theme.palette.secondary.main};
   height: 80vh;
+  left: 0;
 `;
 
 const Container = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const ContentNavigation = styled.div`
-  flex-basis: 35%;
+  flex-basis: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -2rem;
 `;
 
 const TestimonialsContainer = styled.div`
-  flex-basis: 65%;
+  flex-basis: 60%;
   display: grid;
   // grid-template-columns: 1fr 1fr;
   // grid-column-gap: 5%;

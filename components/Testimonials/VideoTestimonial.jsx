@@ -19,7 +19,7 @@ const Container = styled.div`
   video {
     width: 80%;
     aspect-ratio: 3/2;
-    height: 70vh;
+    height: 60vh;
     background: black;
   }
 `;

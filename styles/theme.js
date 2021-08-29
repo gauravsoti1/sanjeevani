@@ -1,7 +1,7 @@
 import { pink } from "@material-ui/core/colors";
-import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
-let theme = createTheme({
+let theme = createMuiTheme({
   palette: {
     primary: {
       dark: "#6b8f23",

@@ -6,10 +6,6 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 
-const TelephoneLink = styled.a`
-  color: ${({ theme }) => theme.palette.secondary.main};
-  text-decoration: none;
-`;
 const TelephoneLinkContainer = styled.div`
   display: flex;
   align-items: center;
@@ -19,14 +15,15 @@ const menuItems = [
   // TODO: add tel href only when it is on mobile
   <TelephoneLinkContainer key="telephoneMenuItem">
     <AddIcCallIcon color="secondary" fontSize="small" />
-    <TelephoneLink href="tel:+919254344556">+91-9254344556</TelephoneLink>
+    <Link color="secondary" href="tel:+919254344556">
+      +91-9254344556
+    </Link>
   </TelephoneLinkContainer>,
   'Team',
   'Specialities',
   'Gallery',
   'About Us',
 ];
-
 
 const menuItemsComponent = menuItems.map((menuItem, index) =>
   typeof menuItem === 'string' ? (
