@@ -1,6 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
+import withCustomColor from './withCustomColor';
 
 function getColorFromKey(key, theme) {
   switch (key) {
@@ -13,8 +14,6 @@ function getColorFromKey(key, theme) {
   }
 }
 
-const StyledTypography = styled(Typography)`
-  color: ${({ theme, color }) => getColorFromKey(color, theme)};
-`;
-
+const StyledTypography = withCustomColor(Typography);
+  
 export default StyledTypography;

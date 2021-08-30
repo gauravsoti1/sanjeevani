@@ -4,44 +4,48 @@ import React from 'react';
 import styled from 'styled-components';
 import Section from '../Section';
 
+const Address = () => (
+  <AddressContainer>
+    <Typography variant="h4"> Rohtak</Typography>
+    <Typography color="textSecondary">
+      Medical mor/ PGI chowk, Delhi Rd, Rohtak, Haryana, 124001
+    </Typography>
+    <Typography color="textSecondary">
+      {/* <div> */}
+      <Link variant="body1" href="tel:01262280006">
+        01262-280006
+      </Link>{' '}
+      /{' '}
+      <Link variant="body1" href="tel:+919254344556">
+        +91-9254344556
+      </Link>
+      {/* </div> */}
+    </Typography>
+    <Link
+      display="block"
+      href="mailTo:sanjeevaniplushospital@gmail.com"
+      gutterBottom
+      variant="body1"
+    >
+      sanjeevaniplushospital@gmail.com
+    </Link>
+    <Button
+      variant="contained"
+      href="https://goo.gl/maps/9RYoQSYyZj8Ry1Kt6"
+      target="_blank"
+      color="secondary"
+      disableElevation
+    >
+      Navigate
+    </Button>
+  </AddressContainer>
+);
+
 export default function LocationComponent() {
   return (
-    <StyledSection>
+    <StyledSection id="aboutUs">
       <Container>
-        <AddressContainer>
-          <Typography variant="h4"> Rohtak</Typography>
-          <Typography color="textSecondary">
-            Medical mor/ PGI chowk, Delhi Rd, Rohtak, Haryana, 124001
-          </Typography>
-          <Typography color="textSecondary">
-            <div>
-              <Link variant="body1" href="tel:01262280006">
-                01262-280006
-              </Link>{' '}
-              /{' '}
-              <Link variant="body1" href="tel:+919254344556">
-                +91-9254344556
-              </Link>
-            </div>
-          </Typography>
-          <Link
-            display="block"
-            href="mailTo:sanjeevaniplushospital@gmail.com"
-            gutterBottom
-            variant="body1"
-          >
-            sanjeevaniplushospital@gmail.com
-          </Link>
-          <Button
-            variant="contained"
-            href="https://goo.gl/maps/9RYoQSYyZj8Ry1Kt6"
-            target="_blank"
-            color="secondary"
-            disableElevation
-          >
-            Navigate
-          </Button>
-        </AddressContainer>
+        <Address />
         <MapContainer>
           <MapImageContainer>
             <Image

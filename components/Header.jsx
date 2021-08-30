@@ -11,7 +11,9 @@ const TelephoneLinkContainer = styled.div`
   align-items: center;
 `;
 const menuItems = [
-  'Home',
+  <Link href="/" color="inherit" href="#specialities">
+    Home
+  </Link>,
   // TODO: add tel href only when it is on mobile
   <TelephoneLinkContainer key="telephoneMenuItem">
     <AddIcCallIcon color="secondary" fontSize="small" />
@@ -19,10 +21,18 @@ const menuItems = [
       +91-9254344556
     </Link>
   </TelephoneLinkContainer>,
-  'Team',
-  'Specialities',
-  'Gallery',
-  'About Us',
+  <Link color="inherit" href="/team">
+    Team
+  </Link>,
+  <Link color="inherit" href="/#specialities">
+    Specialities
+  </Link>,
+  <Link color="inherit" href="/gallery">
+    Gallery
+  </Link>,
+  <Link color="inherit" href="/#aboutUs">
+    About Us
+  </Link>,
 ];
 
 const menuItemsComponent = menuItems.map((menuItem, index) =>

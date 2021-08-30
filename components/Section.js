@@ -2,8 +2,12 @@ import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Section({ className, children }) {
-  return <Container className={className}>{children}</Container>;
+export default function Section({ className, children, id }) {
+  return (
+    <Container id={id} className={className}>
+      {children}
+    </Container>
+  );
 }
 
 function Heading({ className, children, color = 'primary' }) {
@@ -22,7 +26,7 @@ function Heading({ className, children, color = 'primary' }) {
 
 Section.Heading = Heading;
 
-const Container = styled.div`
+const Container = styled.section`
   padding: 4rem 2rem;
   min-height: 90vh;
   position: relative;

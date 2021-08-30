@@ -10,16 +10,23 @@ import ServiceDetail from './ServiceDetail';
 import services from './servicesData';
 import ServicesList from './ServicesList';
 
+function getOrthoIndex(services) {
+  const index = services.findIndex((s) => s.id === 'ortho');
+  return index === -1 ? 0 : index;
+}
+
 export default function Services() {
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState(0);
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState(
+    getOrthoIndex(services)
+  );
   const onClick = useCallback((index) => {
     setSelectedServiceIndex(index);
   }, []);
 
   const selectedService = services[selectedServiceIndex];
   return (
-    <Section>
-      <Section.Heading>Our Services</Section.Heading>
+    <Section id="specialities">
+      <Section.Heading>Specialities</Section.Heading>
       <Container>
         <ServicesList
           selectedServiceIndex={selectedServiceIndex}

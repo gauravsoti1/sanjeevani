@@ -1,6 +1,7 @@
 const servicesData = [
   {
     name: 'Orthopedics & Spine',
+    id: 'ortho',
     img: '/ortho.png',
     imgWidth: '215px',
     imgHeight: '185px',
