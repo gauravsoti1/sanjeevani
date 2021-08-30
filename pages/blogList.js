@@ -21,12 +21,12 @@ export default function BlogList() {
       {blogs.map((blog) => (
         <div>
           <h1> {blog.title}</h1>
-          {/* <BlogView {...blog} /> */}
-          <BlogThumbnail
+          <BlogView {...blog} />
+          {/* <BlogThumbnail
             title={blog.title}
             thumbnailUrl={blog?.image?.formats?.thumbnail?.url}
             description={blog.description}
-          />
+          /> */}
         </div>
       ))}
     </Container>
@@ -35,4 +35,5 @@ export default function BlogList() {
 
 const Container = styled.div`
   padding: 2rem;
+  padding-top: 10vh;
 `;

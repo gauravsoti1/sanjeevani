@@ -7,6 +7,7 @@ import theme from '../styles/theme';
 import { Provider } from 'next-auth/client';
 import 'simplemde/dist/simplemde.min.css';
 import Header from '../components/Header';
+import WhatsappFAB from '../components/WhatsappFAB';
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }) {
               <Container>
                 <Header />
                 <Component {...pageProps} />
+                <WhatsappFAB />
               </Container>
             </Provider>
           </ThemeProvider>
