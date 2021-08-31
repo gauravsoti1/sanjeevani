@@ -19,10 +19,10 @@ export default function Testimonials() {
     <StyledSection>
       <Container>
         <ContentNavigation>
-          <StyledTypography gutterBottom color="white" variant="h3">
+          <StyledTypography gutterBottom color="textPrimary" variant="h3">
             Patient's Experience
           </StyledTypography>
-          <StyledTypography color="rgba(255,255,255, 0.9)" variant="h6">
+          <StyledTypography color="textSecondary" variant="h6">
             We are happy that you are satisfied with our services. Let's watch
             our patient's experience
           </StyledTypography>
@@ -38,7 +38,12 @@ export default function Testimonials() {
 }
 
 const StyledSection = styled(Section)`
-  background: ${(props) => props.theme.palette.secondary.main};
+  // background: ${(props) => props.theme.palette.blue.main};
+  background: linear-gradient(
+    180deg,
+    #daf2e4 0%,
+    rgba(218, 242, 228, 0.5) 100%
+  );
   height: 80vh;
   left: 0;
 `;

@@ -1,6 +1,6 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
 import styled from 'styled-components';
+import StyledTypography from './StyledTypography';
 
 export default function Section({ className, children, id }) {
   return (
@@ -10,17 +10,18 @@ export default function Section({ className, children, id }) {
   );
 }
 
-function Heading({ className, children, color = 'primary' }) {
+function Heading({ className, children, color = 'primary', ...props }) {
   return (
-    <Typography
+    <StyledTypography
       align="center"
       color={color}
       className={className}
       variant="h3"
       component="h2"
+      {...props}
     >
       {children}
-    </Typography>
+    </StyledTypography>
   );
 }
 

@@ -7,6 +7,7 @@ import HeroSection from '../components/HeroSection';
 import LocationComponent from '../components/LocationComponent';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
+import Insurances from '../components/Insurances';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         {/* </BannerContainer> */}
       </main>
+      <Insurances />
       <Services />
       <Testimonials />
       <LocationComponent />

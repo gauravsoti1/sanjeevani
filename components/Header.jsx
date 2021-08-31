@@ -11,7 +11,7 @@ const TelephoneLinkContainer = styled.div`
   align-items: center;
 `;
 const menuItems = [
-  <Link href="/" color="inherit" href="#specialities">
+  <Link href="/" color="inherit">
     Home
   </Link>,
   // TODO: add tel href only when it is on mobile
@@ -29,6 +29,9 @@ const menuItems = [
   </Link>,
   <Link color="inherit" href="/gallery">
     Gallery
+  </Link>,
+  <Link color="inherit" href="/blogList">
+    Blog
   </Link>,
   <Link color="inherit" href="/#aboutUs">
     About Us

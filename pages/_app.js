@@ -8,7 +8,15 @@ import { Provider } from 'next-auth/client';
 import 'simplemde/dist/simplemde.min.css';
 import Header from '../components/Header';
 import WhatsappFAB from '../components/WhatsappFAB';
+import { useEffect } from 'react';
+
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles && jssStyles.parentNode)
+      jssStyles.parentNode.removeChild(jssStyles);
+  });
+
   return (
     <>
       <Head>
