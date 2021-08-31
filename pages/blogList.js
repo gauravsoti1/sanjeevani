@@ -4,13 +4,14 @@ import { useBlogs } from '../lib/swr-hooks';
 import BlogView from '../components/Blog/BlogView';
 import styled from 'styled-components';
 import BlogThumbnail from '../components/Blog/BlogThumbnail';
+import { Typography } from '@material-ui/core';
 
 export function BlogListContent() {}
 
 export default function BlogList() {
   // const [session, loading] = useSession();
 
-  const { blogs, isLoading } = useBlogs();
+  const { blogs = [], isLoading } = useBlogs();
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -20,8 +21,11 @@ export default function BlogList() {
     <Container>
       {blogs.map((blog) => (
         <div>
-          <h1> {blog.title}</h1>
+          <Typography variant="h3" align="center">
+            {blog.title}
+          </Typography>
           <BlogView {...blog} />
+          <hr />
           {/* <BlogThumbnail
             title={blog.title}
             thumbnailUrl={blog?.image?.formats?.thumbnail?.url}
