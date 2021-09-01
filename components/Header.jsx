@@ -30,7 +30,7 @@ const menuItems = [
   <Link color="inherit" href="/gallery">
     Gallery
   </Link>,
-  <Link color="inherit" href="/blogList">
+  <Link color="inherit" href="/blogs">
     Blog
   </Link>,
   <Link color="inherit" href="/#aboutUs">
