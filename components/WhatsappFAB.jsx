@@ -22,6 +22,6 @@ export default function WhatsappFAB() {
 
 const Container = styled.div`
   position: fixed;
-  right: 4rem;
-  bottom: 4rem;
+  right: 2rem;
+  bottom: 2rem;
 `;

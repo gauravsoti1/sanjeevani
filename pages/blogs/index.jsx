@@ -42,7 +42,7 @@ export default function BlogList() {
 
 const Container = styled.div`
   padding: 2rem;
-  padding-top: 10vh;
+  padding-top: 14vh;
 `;
 
 const BlogsContainer = styled.div`

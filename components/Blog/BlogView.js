@@ -1,8 +1,9 @@
 import React from 'react';
-// import ReactMarkdown from 'react-markdown';
-// import remarkGfm from 'remark-gfm';
+
 import dynamic from 'next/dynamic';
-import { Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
+import styled from 'styled-components';
+import Image from 'next/image';
 
 const ReactMarkdown = dynamic(
   () => import('react-markdown').then((module) => module),
@@ -12,19 +13,47 @@ const remarkGfm = dynamic(() => import('remark-gfm').then((module) => module), {
   ssr: false,
 });
 
-export default function BlogView({ content, title, description }) {
+export default function BlogView({
+  content,
+  title,
+  description,
+  imageUrl,
+  imageWidth,
+  imageHeight,
+}) {
   return (
-    <div>
-      <Typography variant="h1" component="h4">
+    <Container>
+      <Box
+        textAlign="center"
+        fontSize="h4.fontSize"
+        mb="2rem"
+        fontWeight="fontWeightBold"
+      >
         {title}
-      </Typography>
+      </Box>
+      <ImageContainer>
+        <Image
+          width={imageWidth}
+          height={imageHeight}
+          src={imageUrl}
+          layout="responsive"
+        />
+      </ImageContainer>
       <ReactMarkdown
-        skipHtml={false}
         remarkPlugins={[remarkGfm]}
         // skipHtml={false}
       >
         {content}
       </ReactMarkdown>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  padding-top: 18vh;
+`;
+
+const ImageContainer = styled.div`
+  width: 70%;
+  margin: 5vh auto;
+`;

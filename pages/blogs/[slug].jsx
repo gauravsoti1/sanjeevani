@@ -13,11 +13,5 @@ export default function BlogDetail() {
     return <p>Loading...</p>;
   }
 
-  return (
-    <BlogView
-      content={blog.content}
-      title={blog.title}
-      description={blog.description}
-    />
-  );
+  return <BlogView {...blog} />;
 }
