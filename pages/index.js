@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
@@ -8,10 +7,18 @@ import LocationComponent from '../components/LocationComponent';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
 import Insurances from '../components/Insurances';
+import fetchApi from '../lib/fetchApi';
+import Seo from '../components/Seo';
 
-export default function Home() {
+export default function Home({ homepage }) {
+  const { seo } = homepage;
   return (
     <Container>
+      <Seo
+        title={seo.metaTitle}
+        description={seo.metaDescription}
+        shareImage={process.env.NEXT_PUBLIC_CMS_MEDIA_URL + seo.shareImage.url}
+      />
       <main>
         {/* <BannerContainer> */}
         <HeroSection />
@@ -24,6 +31,13 @@ export default function Home() {
       <Footer></Footer>
     </Container>
   );
+}
+
+export async function getServerSideProps(context) {
+  const homepage = await fetchApi('/homepage');
+  return {
+    props: { homepage }, // will be passed to the page component as props
+  };
 }
 
 const Container = styled.div`
