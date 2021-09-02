@@ -3,21 +3,24 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import GalleryComponent from '../components/GalleryComponent';
 import Header from '../components/Header';
+import { useGallery } from '../lib/swr-hooks';
 
 export default function gallery() {
-  const [selectedId, setSelectedId] = useState(0);
+  const { data, isLoading, error } = useGallery();
 
-  return [
-    <Header />,
+  if (isLoading) return <Typography>Loading</Typography>;
+  if (error) return <Typography>Error</Typography>;
+
+  return (
     <Container>
-      <Typography variant="h2" color="primary">
-        Our Gallery
-      </Typography>
-      <GalleryComponent />
-    </Container>,
-  ];
+      <GalleryComponent media={data.media} />
+    </Container>
+  );
 }
 
 const Container = styled.div`
-  margin-top: 10vh;
+  padding-top: 14vh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 `;
