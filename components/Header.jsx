@@ -5,7 +5,6 @@ import { AppBar, Link, Toolbar, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import Image from 'next/image';
 import AddIcCallIcon from '@material-ui/icons/AddIcCall';
-import logo from '../public/logo.png';
 
 const TelephoneLinkContainer = styled.div`
   display: flex;
@@ -67,11 +66,11 @@ export default function Header() {
         <Image
           width="1585"
           height="420"
-          src={logo}
+          src="/logo.png"
           alt="Sanjeevani Logo"
           // layout="responsive"
           objectFit="contain"
-          placeholder="blur"
+          // placeholder="blur"
           // blurDataUrl="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
         />
       </LogoContainer>
