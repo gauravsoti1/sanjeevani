@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function VideoTestimonial({ className, url }) {
   return (
     <Container className={className}>
-      <video autoplay controls>
+      <video preload="none" poster="/testimonialPoster.png" controls>
         <source src={url} />
       </video>
     </Container>
