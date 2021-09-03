@@ -26,6 +26,8 @@ export default function Insurances() {
             height={height}
             layout="responsive"
             objectFit="contain"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
           />
         ))}
       </InsuranceIconsContainer>

@@ -1,8 +1,12 @@
-import { Button, Link, Typography } from '@material-ui/core';
+import { Button, IconButton, Link, Typography } from '@material-ui/core';
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import Section from '../Section';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const Address = () => (
   <AddressContainer>
@@ -38,6 +42,20 @@ const Address = () => (
     >
       Navigate
     </Button>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <IconButton href="https://www.linkedin.com/company/sanjeevaniplushospital">
+        <LinkedInIcon />
+      </IconButton>
+      <IconButton href="https://www.facebook.com/SanjeevaniplusHospital">
+        <FacebookIcon />
+      </IconButton>
+      <IconButton href="https://youtu.be/qtbjrMLzuKM">
+        <YouTubeIcon />
+      </IconButton>
+      <IconButton href="https://www.instagram.com/invites/contact/?i=1uozm0n5x5o3l&utm_content=li1fly3">
+        <InstagramIcon />
+      </IconButton>
+    </div>
   </AddressContainer>
 );
 
@@ -54,7 +72,7 @@ export default function LocationComponent() {
               // height="499"
               layout="fill"
               objectFit="cover"
-              placeholder="blur"
+              // placeholder="blur"
             />
           </MapImageContainer>
           <MapIframe
