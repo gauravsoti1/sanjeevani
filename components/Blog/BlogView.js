@@ -4,14 +4,15 @@ import dynamic from 'next/dynamic';
 import { Box } from '@material-ui/core';
 import styled from 'styled-components';
 import Image from 'next/image';
-
-const ReactMarkdown = dynamic(
-  () => import('react-markdown').then((module) => module),
-  { ssr: false }
-);
-const remarkGfm = dynamic(() => import('remark-gfm').then((module) => module), {
-  ssr: false,
-});
+import remarkGfm from 'remark-gfm';
+import ReactMarkdown from 'react-markdown';
+// const ReactMarkdown = dynamic(
+//   () => import('react-markdown').then((module) => module),
+//   { ssr: false }
+// );
+// const remarkGfm = dynamic(() => import('remark-gfm').then((module) => module), {
+//   ssr: false,
+// });
 
 export default function BlogView({
   content,
