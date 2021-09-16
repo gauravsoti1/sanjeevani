@@ -63,7 +63,7 @@ const ContentNavigation = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    height: auto;
   }
   margin-top: -2rem;
 `;
