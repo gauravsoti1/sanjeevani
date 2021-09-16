@@ -36,16 +36,23 @@ export default function Insurances() {
 }
 
 const DescriptionContainer = styled.div`
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    width: 60%;
+  }
 `;
 
 const InsuranceIconsContainer = styled.div`
-  padding: 6rem 4rem 0 4rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 4rem 0rem 0 0rem;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    padding: 6rem 4rem 0 4rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+  }
   justify-content: space-evenly;
   grid-row-gap: 5vh;
-  grid-template-rows: 200px 200px;
   grid-column-gap: 5%;
 `;

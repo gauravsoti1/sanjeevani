@@ -46,8 +46,14 @@ const Container = styled(Card)`
 `;
 
 const ImageContainer = styled.div`
-  height: 45vh;
+  height: 30vh;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    height: 20vh;
+  }
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    height: 45vh;
+  }
   position: relative;
   background: black;
-  pointer: cursor;
+  cursor: pointer;
 `;

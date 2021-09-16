@@ -28,7 +28,11 @@ function Heading({ className, children, color = 'primary', ...props }) {
 Section.Heading = Heading;
 
 const Container = styled.section`
-  padding: 4rem 2rem;
-  min-height: 90vh;
+  padding: 2rem 2rem;
+
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    padding: 4rem 2rem;
+    min-height: 90vh;
+  }
   position: relative;
 `;

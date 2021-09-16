@@ -6,20 +6,24 @@ import Seo from '../../components/Seo';
 import styled from 'styled-components';
 import Image from 'next/image';
 import MarkdownDisplay from '../../components/MarkdownDisplay';
-import { Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
+import StyledTypography from '../../components/StyledTypography';
 
 export default function TeamDetail({ teamMember }) {
   console.log(teamMember);
   const { imageUrl, imageWidth, imageHeight } = teamMember.media[0];
 
   return (
-    <div>
+    <Container>
       <Seo
         title={`Sanjeevani Plus Doctor: ${teamMember.name}`}
         shareImage={imageUrl}
         description={teamMember.description}
       />
-      <Container>
+      <StyledTypography gutterBottom variant="h4" color="blue" align="center">
+        Doctor's Profile
+      </StyledTypography>
+      <DoctorInformationContainer>
         <div>
           <ImageContainer>
             <Image
@@ -38,8 +42,8 @@ export default function TeamDetail({ teamMember }) {
         <div>
           <MarkdownDisplay content={teamMember.about} />
         </div>
-      </Container>
-    </div>
+      </DoctorInformationContainer>
+    </Container>
   );
 }
 
@@ -53,11 +57,11 @@ export async function getServerSideProps(context) {
 const PageContainer = styled.div``;
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 6fr;
-  // padding-top: 18vh;
-  grid-column-gap: 5%;
-  padding: 18vh 5% 5vh 5%;
+  padding: 10vh 5% 5vh 5%;
+
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    padding-top: 18vh;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -65,4 +69,13 @@ const ImageContainer = styled.div`
   position: relative;
   // background: black;
   text-align: center;
+`;
+
+const DoctorInformationContainer = styled.div`
+  ${(props) => props.theme.breakpoints.up('md')} {
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    grid-column-gap: 5%;
+  }
+  padding-top: 2rem;
 `;

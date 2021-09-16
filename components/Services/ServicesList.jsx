@@ -24,19 +24,30 @@ export default function ServicesList({ onClick, selectedServiceIndex }) {
 }
 
 const Container = styled.div`
-  flex-basis: 35%;
-  decoration: none;
-  display: flex;
-  justify-content: flex-end;
+  margin-top: 2rem;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    flex-basis: 35%;
+    decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
 `;
 
 const StyledList = styled(List)`
-  width: 70%;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    width: 70%;
+  }
 `;
 
 const StyledListItem = styled(ListItem)`
-  display: inline-block;
-  text-align: right;
+  text-align: center;
+  justify-content: center;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    display: inline-block;
+    text-align: right;
+    justify-content: flex-end;
+  }
   background-color: ${({ theme, selected }) =>
     selected &&
     css`

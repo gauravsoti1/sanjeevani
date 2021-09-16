@@ -43,5 +43,9 @@ export default function Services() {
 const Container = styled.div`
   padding-top: 4rem;
   display: flex;
+  flex-direction: column-reverse;
   // height: 60vh;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    flex-direction: row;
+  }
 `;

@@ -18,30 +18,36 @@ export default function GalleryComponent({ media = [] }) {
     },
   });
   const isLast = currentSlide === media?.length - 1 || 0;
-
-  const arrows = (
-    <div>
-      {slider && (
-        <IconButton
+  const leftArrow = slider && (
+    <LeftArrowContainer>
+      <ArrowButton
+        disabled={currentSlide === 0}
+        variant="contained"
+        // color="primary"
+        size="large"
+      >
+        <ArrowBackIcon
+          onClick={(e) => e.stopPropagation() || slider.prev()}
           disabled={currentSlide === 0}
-          variant="contained"
-          size="large"
-        >
-          <ArrowBackIcon
-            onClick={(e) => e.stopPropagation() || slider.prev()}
-            disabled={currentSlide === 0}
-          />
-        </IconButton>
-      )}
-      {slider && (
-        <IconButton size="large" disabled={isLast}>
-          <ArrowForwardIcon
-            onClick={(e) => e.stopPropagation() || slider.next()}
-            disabled={currentSlide === slider.details().size - 1}
-          />
-        </IconButton>
-      )}
-    </div>
+        />
+      </ArrowButton>
+    </LeftArrowContainer>
+  );
+
+  const rightArrow = slider && (
+    <RightArrowContainer>
+      <ArrowButton
+        variant="contained"
+        size="large"
+        // color="primary"
+        disabled={isLast}
+      >
+        <ArrowForwardIcon
+          onClick={(e) => e.stopPropagation() || slider.next()}
+          disabled={currentSlide === slider.details().size - 1}
+        />
+      </ArrowButton>
+    </RightArrowContainer>
   );
 
   const dots = slider && (
@@ -64,15 +70,19 @@ export default function GalleryComponent({ media = [] }) {
   );
 
   return [
-    <LeftContainer>
-      <Typography align="center" variant="h3" component="h1" color="primary">
-        Our Gallery
-      </Typography>
-      {arrows}
-      {/* {dots} */}
-    </LeftContainer>,
+    <Typography
+      gutterBottom
+      align="center"
+      variant="h3"
+      component="h1"
+      color="primary"
+    >
+      Our Gallery
+    </Typography>,
+
     <Container className="galleryComponent">
       <SliderAndIconsContainer>
+        {leftArrow}
         <SliderContainer ref={sliderRef} className="keen-slider">
           {media.map((m, index) => (
             <ThumbnailContainer
@@ -89,13 +99,14 @@ export default function GalleryComponent({ media = [] }) {
             </ThumbnailContainer>
           ))}
         </SliderContainer>
+        {rightArrow}
       </SliderAndIconsContainer>
     </Container>,
   ];
 }
 
 const Container = styled.div`
-  height: 80vh;
+  height: 100%;
   // padding: 6rem;
   // display: flex;
   // flex-direction: column;
@@ -104,16 +115,20 @@ const Container = styled.div`
   margin: 0 auto;
 `;
 
-const SliderContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 const SliderAndIconsContainer = styled.div`
   // display: flex;
   // align-items: center;
   height: 100%;
   position: relative;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    margin: 0 4rem;
+  }
+  background: rgba(0, 0, 0, 0.9);
+`;
+
+const SliderContainer = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
 const LeftArrowContainer = styled.div`
@@ -124,7 +139,16 @@ const LeftArrowContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  // z-index: 5;
+  padding-left: 1rem;
 `;
+
+const ThumbnailContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+`;
+
 const RightArrowContainer = styled.div`
   position: absolute;
   right: 0;
@@ -133,18 +157,26 @@ const RightArrowContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-`;
-const ThumbnailContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
+  justify-content: flex-end;
+  z-index: 5;
+  padding-right: 1rem;
 `;
 
-const LeftContainer = styled.div`
-  flex-basis: 30%;
-  margin-bottom: 4rem;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const ArrowButton = styled(IconButton)`
+  &.MuiIconButton-root:hover,
+  &.MuiIconButton-root:active {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  // &.MuiIconButton-root:not(.Mui-disabled) svg {
+  //   color: rgba(255, 255, 255, 0.6);
+  // }
+  &.MuiIconButton-root:not(.Mui-disabled) svg {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  &.MuiIconButton-root.Mui-disabled svg {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  &.MuiIconButton-root {
+    z-index: 5;
+  }
 `;

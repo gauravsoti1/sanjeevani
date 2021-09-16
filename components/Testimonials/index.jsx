@@ -44,26 +44,36 @@ const StyledSection = styled(Section)`
     #daf2e4 0%,
     rgba(218, 242, 228, 0.5) 100%
   );
-  height: 80vh;
+  // height: 80vh;
   left: 0;
+  min-height: 90vh;
+  padding-top: 4rem;
 `;
 
 const Container = styled.div`
-  display: flex;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    display: flex;
+  }
   height: 100%;
 `;
 
 const ContentNavigation = styled.div`
-  flex-basis: 40%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
   margin-top: -2rem;
 `;
 
 const TestimonialsContainer = styled.div`
-  flex-basis: 60%;
+  margin-top: 2rem;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    flex-basis: 60%;
+    margin-top: 0;
+  }
   display: grid;
   // grid-template-columns: 1fr 1fr;
   // grid-column-gap: 5%;

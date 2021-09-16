@@ -17,7 +17,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   video {
+  width: 100%;
+  ${(props) => props.theme.breakpoints.up('lg')} {
     width: 80%;
+  }
     aspect-ratio: 3/2;
     height: 60vh;
     background: black;

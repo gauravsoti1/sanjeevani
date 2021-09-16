@@ -45,7 +45,9 @@ export default function BlogView({
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding: 0 2rem;
+`;
 
 const ImageContainer = styled.div`
   width: 70%;

@@ -90,11 +90,18 @@ export default function LocationComponent() {
 }
 
 const StyledSection = styled(Section)`
-  height: 70vh;
+  height: 90vh;
+  min-height: 90vh;
+  padding-top: 4rem;
 `;
 
 const Container = styled.div`
-  display: flex;
+  padding-top: 2rem;
+
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    display: flex;
+    padding-top: 0rem;
+  }
   // padding: 4rem;
   // height: 50vh;
   // border-top: 1px solid #ddd;
@@ -123,9 +130,14 @@ const MapImageContainer = styled.div`
 `;
 
 const MapContainer = styled.div`
-  height: 80%;
   position: relative;
+  height: 40%;
   display: flex;
-  flex-basis: 70%;
-  padding-left: 5%;
+  margin-top: 2rem;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    margin-top: 0;
+    height: 80%;
+    padding-left: 5%;
+    flex-basis: 70%;
+  }
 `;
