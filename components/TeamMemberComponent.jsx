@@ -10,9 +10,10 @@ export default function TeamMemberComponent({
   imageWidth,
   imageHeight,
   description,
+  onClick,
 }) {
   return (
-    <Container>
+    <Container onClick={onClick}>
       {/* <CardActions> */}
       <ImageContainer>
         <Image
@@ -45,7 +46,8 @@ const Container = styled(Card)`
 `;
 
 const ImageContainer = styled.div`
-  height: 30vh;
+  height: 45vh;
   position: relative;
   background: black;
+  pointer: cursor;
 `;

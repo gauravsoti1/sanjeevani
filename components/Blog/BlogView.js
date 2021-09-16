@@ -4,8 +4,8 @@ import dynamic from 'next/dynamic';
 import { Box } from '@material-ui/core';
 import styled from 'styled-components';
 import Image from 'next/image';
-import remarkGfm from 'remark-gfm';
-import ReactMarkdown from 'react-markdown';
+import MarkdownDisplay from '../MarkdownDisplay';
+
 // const ReactMarkdown = dynamic(
 //   () => import('react-markdown').then((module) => module),
 //   { ssr: false }
@@ -40,19 +40,12 @@ export default function BlogView({
           layout="responsive"
         />
       </ImageContainer>
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        // skipHtml={false}
-      >
-        {content}
-      </ReactMarkdown>
+      <MarkdownDisplay content={content} />
     </Container>
   );
 }
 
-const Container = styled.div`
-  padding-top: 18vh;
-`;
+const Container = styled.div``;
 
 const ImageContainer = styled.div`
   width: 70%;

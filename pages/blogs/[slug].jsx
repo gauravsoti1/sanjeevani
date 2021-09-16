@@ -6,6 +6,7 @@ import Head from 'next/head';
 import fetchApi from '../../lib/fetchApi';
 import Blog from '../../models/Blog';
 import Seo from '../../components/Seo';
+import styled from 'styled-components';
 
 export default function BlogDetail({ blog }) {
   // const router = useRouter();
@@ -18,19 +19,15 @@ export default function BlogDetail({ blog }) {
   // }
 
   return (
-    <div>
+    <Container>
       <Seo
         title={blog.title}
         shareImage={blog.imageUrl}
         description={blog.description}
         keywords={blog.keywords}
       />
-      <Head>
-        <title>{blog.title}</title>
-        <meta name="description" content={blog.description} />
-      </Head>
       <BlogView {...blog} />,
-    </div>
+    </Container>
   );
 }
 
@@ -40,3 +37,7 @@ export async function getServerSideProps(context) {
     props: { blog: Blog(blog) }, // will be passed to the page component as props
   };
 }
+
+const Container = styled.div`
+  padding-top: 18vh;
+`;

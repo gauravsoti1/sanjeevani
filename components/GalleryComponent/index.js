@@ -69,7 +69,7 @@ export default function GalleryComponent({ media = [] }) {
         Our Gallery
       </Typography>
       {arrows}
-      {dots}
+      {/* {dots} */}
     </LeftContainer>,
     <Container className="galleryComponent">
       <SliderAndIconsContainer>

@@ -53,10 +53,3 @@ const Footer = styled.footer`
   width: 100%;
   padding: 1rem;
 `;
-
-const BannerContainer = styled.div`
-  width: 90vw;
-  margin: 0 auto;
-  height: 50vh;
-  position: relative;
-`;
