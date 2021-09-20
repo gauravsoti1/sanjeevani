@@ -4,7 +4,7 @@ import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
-import { Provider } from 'next-auth/client';
+// import { Provider } from 'next-auth/client';
 import 'simplemde/dist/simplemde.min.css';
 import Header from '../components/Header';
 import WhatsappFAB from '../components/WhatsappFAB';
@@ -35,13 +35,13 @@ function MyApp({ Component, pageProps }) {
           <ThemeProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
-            <Provider session={pageProps.session}>
+            {/* <Provider session={pageProps.session}> */}
               <Container>
                 <Header />
                 <Component {...pageProps} />
                 <WhatsappFAB />
               </Container>
-            </Provider>
+            {/* </Provider> */}
           </ThemeProvider>
         </MuiThemeProvider>
       </StylesProvider>

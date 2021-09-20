@@ -10,7 +10,7 @@ import Insurances from '../components/Insurances';
 import fetchApi from '../lib/fetchApi';
 import Seo from '../components/Seo';
 
-export default function Home({ homepage }) {
+export default function Home(props) {
   // const { seo } = homepage;
   return (
     <Container>
