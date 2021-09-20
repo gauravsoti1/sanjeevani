@@ -123,6 +123,7 @@ export default function Header() {
           alt="Sanjeevani Logo"
           // layout="responsive"
           objectFit="contain"
+          priority={true}
           // placeholder="blur"
           // blurDataUrl="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
         />

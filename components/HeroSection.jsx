@@ -32,7 +32,12 @@ export default function HeroSection() {
           </Typography>
         </HeroTextContainer>
         <HeroImageContainer>
-          <Image src="/heroImage.svg" alt="Vercel Logo" layout="fill" />
+          <Image
+            priority={true}
+            src="/heroImage.svg"
+            alt="Vercel Logo"
+            layout="fill"
+          />
         </HeroImageContainer>
       </Container>
     </Section>
