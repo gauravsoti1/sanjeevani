@@ -11,13 +11,13 @@ import fetchApi from '../lib/fetchApi';
 import Seo from '../components/Seo';
 
 export default function Home({ homepage }) {
-  const { seo } = homepage;
+  // const { seo } = homepage;
   return (
     <Container>
       <Seo
-        title={seo.metaTitle}
-        description={seo.metaDescription}
-        shareImage={process.env.NEXT_PUBLIC_CMS_MEDIA_URL + seo.shareImage.url}
+        title="Sanjeevani Super Speciality Hospital"
+        description="Sanjeevani Plus Hospital is one of the leading specialty orthopedics units running successfully for over a decade. We offer planned orthopedics surgery to people locally, nationally and internationally."
+        shareImage="/logo.png"
       />
       <main>
         {/* <BannerContainer> */}
@@ -33,12 +33,12 @@ export default function Home({ homepage }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const homepage = await fetchApi('/homepage');
-  return {
-    props: { homepage }, // will be passed to the page component as props
-  };
-}
+// export async function getServerSideProps(context) {
+//   const homepage = await fetchApi('/homepage');
+//   return {
+//     props: { homepage }, // will be passed to the page component as props
+//   };
+// }
 
 const Container = styled.div`
   min-height: 100vh;
