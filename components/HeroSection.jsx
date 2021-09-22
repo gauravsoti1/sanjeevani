@@ -112,4 +112,8 @@ const BackgroundShadowEllipseBottom = styled.div`
 
 const StyledSection = styled(Section)`
   overflow-x: clip;
+
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    overflow-x: inherit;
+  }
 `;

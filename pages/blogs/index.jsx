@@ -48,7 +48,6 @@ const Container = styled.div`
 const BlogsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  padding: 0 2rem;
 
   ${(props) => props.theme.breakpoints.up('sm')} {
     grid-template-columns: 1fr 1fr;
@@ -57,9 +56,7 @@ const BlogsContainer = styled.div`
   ${(props) => props.theme.breakpoints.up('md')} {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  ${(props) => props.theme.breakpoints.up('lg')} {
-    padding: 0;
-  }
+
   grid-column-gap: 5%;
   grid-row-gap: 5vh;
 `;
