@@ -24,7 +24,7 @@ export default function Insurances() {
             src={src}
             width={width}
             height={height}
-            layout="responsive"
+            // layout="responsive"
             objectFit="contain"
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
