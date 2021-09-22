@@ -43,6 +43,7 @@ export default function TeamMemberComponent({
 const Container = styled(Card)`
   // display: flex;
   // flex-direction: column;
+  cursor: pointer;
 `;
 
 const ImageContainer = styled.div`
@@ -55,5 +56,4 @@ const ImageContainer = styled.div`
   }
   position: relative;
   background: black;
-  cursor: pointer;
 `;

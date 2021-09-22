@@ -4,12 +4,12 @@ import React from 'react';
 import styled from 'styled-components';
 import TeamMemberComponent from '../../components/TeamMemberComponent';
 import { useTeamMembers } from '../../lib/swr-hooks';
+import TeamLoadingCard from './TeamLoadingCard';
 
 export default function team() {
   const { team, isLoading, isError } = useTeamMembers();
   const router = useRouter();
 
-  if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error...</div>;
 
   function onClick(path) {
@@ -22,17 +22,25 @@ export default function team() {
         Our Team
       </Typography>
       <TeamContainer>
-        {team.map((teamMember) => (
-          <TeamMemberComponent
-            name={teamMember.name}
-            onClick={onClick.bind(null, `/team/${teamMember.id}`)}
-            qualifications={teamMember.qualifications}
-            imageUrl={teamMember.media[0].imageUrl}
-            imageWidth={teamMember.media[0].imageWidth}
-            imageHeight={teamMember.media[0].imageHeight}
-            description={teamMember.description}
-          />
-        ))}
+        {isLoading ? (
+          <>
+            <TeamLoadingCard />
+            <TeamLoadingCard />
+            <TeamLoadingCard />
+          </>
+        ) : (
+          team.map((teamMember) => (
+            <TeamMemberComponent
+              name={teamMember.name}
+              onClick={onClick.bind(null, `/team/${teamMember.id}`)}
+              qualifications={teamMember.qualifications}
+              imageUrl={teamMember.media[0].imageUrl}
+              imageWidth={teamMember.media[0].imageWidth}
+              imageHeight={teamMember.media[0].imageHeight}
+              description={teamMember.description}
+            />
+          ))
+        )}
       </TeamContainer>
     </Container>
   );

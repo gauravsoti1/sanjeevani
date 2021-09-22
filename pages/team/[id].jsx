@@ -6,13 +6,29 @@ import Seo from '../../components/Seo';
 import styled from 'styled-components';
 import Image from 'next/image';
 import MarkdownDisplay from '../../components/MarkdownDisplay';
-import { Box, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import StyledTypography from '../../components/StyledTypography';
+import Skeleton from '@material-ui/lab/Skeleton';
+import useRouterLoading from '../../hooks/useRouterLoading';
+
+const LoadingComponent = () => (
+  <DoctorInformationContainer>
+    <div>
+      <Skeleton variant="circle" height={200} />
+    </div>
+    <div>
+      <Skeleton variant="text" width="100%" />
+      <Skeleton variant="text" width="70%" />
+      <Skeleton variant="text" width="50%" />
+    </div>
+  </DoctorInformationContainer>
+);
 
 export default function TeamDetail({ teamMember }) {
-  console.log(teamMember);
   const { imageUrl, imageWidth, imageHeight } = teamMember.media[0];
-
+  const [loading] = useRouterLoading();
+  
+  if (loading) return <LoadingComponent />;
   return (
     <Container>
       <Seo
@@ -35,7 +51,6 @@ export default function TeamDetail({ teamMember }) {
             />
           </ImageContainer>
           <Typography align="center" color="primary">
-            {' '}
             {teamMember.qualifications}
           </Typography>
         </div>
@@ -53,8 +68,6 @@ export async function getServerSideProps(context) {
     props: { teamMember: TeamMember(teamMember) }, // will be passed to the page component as props
   };
 }
-
-const PageContainer = styled.div``;
 
 const Container = styled.div`
   padding: 10vh 5% 5vh 5%;

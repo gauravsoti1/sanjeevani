@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -27,17 +28,19 @@ export default function BlogThumbnail({
         <ImageContainer>
           <Image
             src={thumbnailUrl}
-            layout="responsive"
+            layout="fill"
             height={thumbnailHeight}
             width={thumbnailWidth}
             objectFit="cover"
           />
         </ImageContainer>
         <CardContent>
-          <Typography variant="h6" gutterBottom>{title}</Typography>
-          <Typography noWrap={true} color="textSecondary" variant="body2">
-            {description}
+          <Typography noWrap={true} variant="h6" gutterBottom>
+            {title}
           </Typography>
+          <DescriptionBox fontSize="body2.fontSize" component="div">
+            {description}
+          </DescriptionBox>
         </CardContent>
         {/* <CardMedia
             component={
@@ -50,21 +53,25 @@ export default function BlogThumbnail({
 }
 
 const Container = styled(Card)`
-  max-height: 400px;
+  // max-height: 400px;
   overflow: hidden;
   cursor: pointer;
 `;
 const ImageContainer = styled.div`
   width: 100%;
-  // height: 30vh;
+  height: 30vh;
   position: relative;
-  object-fit: cover;
+  // object-fit: cover;
 `;
 
-export function getStaticProps() {
-  const cmsUrl = process.env.CMS_MEDIA_URL;
-  console.log(
-    '🚀 ~ file: BlogThumbnail.js ~ line 18 ~ getStaticProps ~ cmsUrl',
-    cmsUrl
-  );
-}
+const TextBox = styled(Box)`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+const DescriptionBox = styled(TextBox)`
+  -webkit-line-clamp: 3;
+  height: calc(3 * ${(props) => props.theme.typography.body2.lineHeight}rem);
+  line-height: ${(props) => props.theme.typography.body2.lineHeight}rem;
+`;

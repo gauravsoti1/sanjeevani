@@ -1,14 +1,22 @@
-// import "../styles/globals.css";
 import Head from 'next/head';
 import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
 import styled, { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
-// import { Provider } from 'next-auth/client';
 import 'simplemde/dist/simplemde.min.css';
-import Header from '../components/Header';
-import WhatsappFAB from '../components/WhatsappFAB';
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
+import NProgress from 'nprogress';
+import Router from 'next/router';
+import '../styles/nprogress.css';
+import nProgress from 'nprogress';
+
+Router.events.on('routeChangeStart', nProgress.start);
+Router.events.on('routeChangeError', nProgress.done);
+Router.events.on('routeChangeComplete', nProgress.done);
+
+const WhatsappFAB = dynamic(() => import('../components/WhatsappFAB'));
+const Header = dynamic(() => import('../components/Header'));
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -36,11 +44,11 @@ function MyApp({ Component, pageProps }) {
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             {/* <Provider session={pageProps.session}> */}
-              <Container>
-                <Header />
-                <Component {...pageProps} />
-                <WhatsappFAB />
-              </Container>
+            <Container>
+              <Header />
+              <Component {...pageProps} />
+              <WhatsappFAB />
+            </Container>
             {/* </Provider> */}
           </ThemeProvider>
         </MuiThemeProvider>

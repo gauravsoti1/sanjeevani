@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Typography } from '@material-ui/core';
 import Image from 'next/image';
 import Section from './Section';
+import heroImage from '../public/heroImage.svg';
 
 const BackgroundShadow = () => [
   <BackgroundShadowEllipseTop key="shadow1" />,
@@ -11,7 +12,7 @@ const BackgroundShadow = () => [
 
 export default function HeroSection() {
   return (
-    <Section>
+    <StyledSection>
       <BackgroundShadow />
 
       <Container>
@@ -34,13 +35,14 @@ export default function HeroSection() {
         <HeroImageContainer>
           <Image
             priority={true}
-            src="/heroImage.svg"
+            // src="/heroImage.svg"
+            src={heroImage}
             alt="Vercel Logo"
-            layout="fill"
+            // layout="fill"
           />
         </HeroImageContainer>
       </Container>
-    </Section>
+    </StyledSection>
   );
 }
 
@@ -106,4 +108,8 @@ const BackgroundShadowEllipseBottom = styled.div`
   background: #c1f5d7;
   filter: blur(800px);
   z-index: -1;
+`;
+
+const StyledSection = styled(Section)`
+  overflow-x: clip;
 `;

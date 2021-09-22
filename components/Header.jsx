@@ -16,6 +16,7 @@ import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 import { useState } from 'react';
 import { Menu } from '@material-ui/core';
 import { useCallback } from 'react';
+import logo from '../public/logo.png';
 
 const TelephoneLinkContainer = styled.div`
   display: flex;
@@ -117,9 +118,10 @@ export default function Header() {
     <Container>
       <LogoContainer>
         <Image
-          width="1585"
-          height="420"
-          src="/logo.png"
+          // width="1585"
+          // height="420"
+          // src="/logo.png"
+          src={logo}
           alt="Sanjeevani Logo"
           // layout="responsive"
           objectFit="contain"
