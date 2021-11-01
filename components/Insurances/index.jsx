@@ -21,6 +21,7 @@ export default function Insurances() {
       <InsuranceIconsContainer>
         {insuranceData.map(({ src, width, height }) => (
           <Image
+            key={src}
             src={src}
             width={width}
             height={height}

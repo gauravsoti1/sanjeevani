@@ -62,7 +62,7 @@ const menuItemsComponent = menuItems.map((menuItem, index) =>
 
 const MenuListComponent = ({ onClick }) =>
   menuItems.map((menuItem, index) => (
-    <ListItem onClick={onClick}>
+    <ListItem key={index} onClick={onClick}>
       {typeof menuItem === 'string' ? (
         <Typography key={index} display="inline" variant="body1">
           {menuItem}
