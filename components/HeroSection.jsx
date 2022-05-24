@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core';
 import Image from 'next/image';
 import Section from './Section';
 import heroImage from '../public/heroImage.svg';
+import drNarender from '../public/drnarender.jpeg';
 
 const BackgroundShadow = () => [
   <BackgroundShadowEllipseTop key="shadow1" />,
@@ -36,8 +37,8 @@ export default function HeroSection() {
           <Image
             priority={true}
             // src="/heroImage.svg"
-            src={heroImage}
-            alt="Vercel Logo"
+            src={drNarender}
+            alt="Dr Narender"
             // layout="fill"
           />
         </HeroImageContainer>

@@ -4,9 +4,9 @@ import { createTheme, responsiveFontSizes } from '@material-ui/core/styles';
 let theme = createTheme({
   palette: {
     primary: {
-      dark: '#6b8f23',
-      main: '#9ACD32',
-      light: '#aed75b',
+      dark: '#00695f',
+      main: '#009688',
+      light: '#33ab9f',
     },
     secondary: {
       dark: '#ab003c',
