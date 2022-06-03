@@ -39,7 +39,8 @@ export default function HeroSection() {
             // src="/heroImage.svg"
             src={drNarender}
             alt="Dr Narender"
-            // layout="fill"
+            layout="responsive"
+            objectFit="contain"
           />
         </HeroImageContainer>
       </Container>
@@ -50,26 +51,29 @@ export default function HeroSection() {
 const Container = styled.div`
   position: relative;
   display: flex;
-  height: 60vh;
-
+  flex-direction: column-reverse;
   ${(props) => props.theme.breakpoints.up('sm')} {
-    height: 80vh;
+    height: 85vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
-  align-items: center;
-  justify-content: space-between;
   // background: linear-gradient(90deg, rgba(218, 242, 228, 0.5) 0%, #daf2e4 100%);
 `;
 
 const HeroTextContainer = styled.div`
-  flex-basis: 100%;
-  // text-align: center;
+  width: 100%;
+  text-align: center;
   ${(props) => props.theme.breakpoints.up('sm')} {
+    text-align: left;
     flex-basis: 50%;
   }
 `;
 
 const HeroImageContainer = styled.div`
-  display: none;
+  // display: none;
+  // width: 100%;
+  height: 35vh;
   ${(props) => props.theme.breakpoints.up('sm')} {
     display: block;
     position: relative;
@@ -113,8 +117,9 @@ const BackgroundShadowEllipseBottom = styled.div`
 
 const StyledSection = styled(Section)`
   overflow-x: clip;
-
+  padding-top: 10vh;
   ${(props) => props.theme.breakpoints.up('lg')} {
+    padding-top: 15vh;
     overflow-x: inherit;
   }
 `;

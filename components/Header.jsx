@@ -1,106 +1,12 @@
 import React from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import {
-  AppBar,
-  Drawer,
-  Link,
-  Toolbar,
-  Typography,
-  List,
-  ListItem,
-} from '@material-ui/core';
+import { Drawer, List } from '@material-ui/core';
 import styled from 'styled-components';
 import Image from 'next/image';
-import AddIcCallIcon from '@material-ui/icons/AddIcCall';
-import { useState } from 'react';
-import { Menu } from '@material-ui/core';
-import { useCallback } from 'react';
 import logo from '../public/logo.png';
-
-const TelephoneLinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const menuItems = [
-  <Link href="/" color="inherit">
-    Home
-  </Link>,
-  // TODO: add tel href only when it is on mobile
-  <TelephoneLinkContainer key="telephoneMenuItem">
-    <AddIcCallIcon color="secondary" fontSize="small" />
-    <Link color="secondary" href="tel:+919254344556">
-      +91-9254344556
-    </Link>
-  </TelephoneLinkContainer>,
-  <Link color="inherit" href="/team">
-    Team
-  </Link>,
-  <Link color="inherit" href="/#specialities">
-    Specialities
-  </Link>,
-  <Link color="inherit" href="/gallery">
-    Gallery
-  </Link>,
-  <Link color="inherit" href="/blogs">
-    Blog
-  </Link>,
-  <Link color="inherit" href="/#aboutUs">
-    About Us
-  </Link>,
-];
-
-const menuItemsComponent = menuItems.map((menuItem, index) =>
-  typeof menuItem === 'string' ? (
-    <Typography key={index} display="inline" variant="body1">
-      {menuItem}
-    </Typography>
-  ) : (
-    menuItem
-  )
-);
-
-const MenuListComponent = ({ onClick }) =>
-  menuItems.map((menuItem, index) => (
-    <ListItem key={index} onClick={onClick}>
-      {typeof menuItem === 'string' ? (
-        <Typography key={index} display="inline" variant="body1">
-          {menuItem}
-        </Typography>
-      ) : (
-        menuItem
-      )}
-    </ListItem>
-  ));
-
-function HamburgerDrawer() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const handleDrawer = useCallback(() => {
-    setDrawerOpen((status) => !status);
-  }, []);
-  return (
-    <>
-      <IconButton
-        color="primary"
-        aria-label="open drawer"
-        onClick={handleDrawer}
-        edge="start"
-        // className={clsx(classes.menuButton, open && classes.hide)}
-      >
-        <MenuIcon />
-      </IconButton>
-      <StyledDrawer anchor="right" open={drawerOpen} onClose={handleDrawer}>
-        {/* <DrawerContent> */}
-        {/* <Typography>Menu</Typography>
-         */}
-        <DrawerList>
-          <MenuListComponent onClick={handleDrawer} />
-        </DrawerList>
-        {/* </DrawerContent> */}
-      </StyledDrawer>
-    </>
-  );
-}
+import nabhLogo from '../public/nabhLogo.png';
+import HamburgerDrawer, { menuItemsComponent } from './HamburgerDrawer';
 
 export default function Header() {
   // const classes = useStyles();
@@ -116,20 +22,29 @@ export default function Header() {
   );
   return (
     <Container>
-      <LogoContainer>
-        <Image
-          // width="1585"
-          // height="420"
-          // src="/logo.png"
-          src={logo}
-          alt="Sanjeevani Logo"
-          // layout="responsive"
-          objectFit="contain"
-          priority={true}
-          // placeholder="blur"
-          // blurDataUrl="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
-        />
-      </LogoContainer>
+      <Logos>
+        <LogoContainer>
+          <Image
+            // height="420"
+            // src="/logo.png"
+            src={logo}
+            alt="Sanjeevani Logo"
+            // layout="responsive"
+            objectFit="contain"
+            priority={true}
+            // placeholder="blur"
+            // blurDataUrl="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8r8NQDwAFCQGsNA7jBAAAAABJRU5ErkJggg=="
+          />
+        </LogoContainer>
+        <NABHLogoContainer>
+          <Image
+            src={nabhLogo}
+            alt="NABH Logo"
+            objectFit="contain"
+            priority={true}
+          />
+        </NABHLogoContainer>
+      </Logos>
       <MenuItems>{menuItemsComponent}</MenuItems>
       <HamburgerContainer>
         <HamburgerDrawer />
@@ -142,14 +57,33 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   position: absolute;
-  height: 6vh;
-  ${(props) => props.theme.breakpoints.up('lg')} {
-    height: 10vh;
+  height: 10vh;
+  align-items: flex-start;
+  ${(props) => props.theme.breakpoints.up('md')} {
+    align-items: center;
   }
-  align-items: center;
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    height: 15vh;
+  }
   width: 100%;
   z-index: 5;
-  padding-right: 1rem;
+  padding: 1rem;
+`;
+
+const Logos = styled.div`
+  flex-basis: 80%;
+  display: flex;
+  align-items: center;
+  ${(props) => props.theme.breakpoints.up('sm')} {
+    flex-basis: 60%;
+  }
+  ${(props) => props.theme.breakpoints.up('md')} {
+    flex-basis: 45%;
+  }
+  ${(props) => props.theme.breakpoints.up('lg')} {
+    flex-basis: 30%;
+  }
+  padding: 0.5rem 1rem;
 `;
 
 const MenuItems = styled.div`
@@ -164,31 +98,40 @@ const MenuItems = styled.div`
 const LogoContainer = styled.div`
   display: inline-block;
   width: 50%;
-  ${(props) => props.theme.breakpoints.up('sm')} {
-    width: 35%;
-  }
-  ${(props) => props.theme.breakpoints.up('md')} {
-    width: 30%;
-  }
+  margin-right: 1rem;
+  // ${(props) => props.theme.breakpoints.up('sm')} {
+  //   width: 35%;
+  // }
+  // ${(props) => props.theme.breakpoints.up('md')} {
+  //   width: 30%;
+  // }
   ${(props) => props.theme.breakpoints.up('lg')} {
-    width: 20%;
+    width: 70%;
   }
   position: relative;
   object-fit: contain;
   max-height: 100%;
-  padding: 0.5rem 1rem;
+  // padding: 0.5rem 1rem;
+`;
+
+const NABHLogoContainer = styled.div`
+  display: inline-block;
+  width: 12.5%;
+  // ${(props) => props.theme.breakpoints.up('sm')} {
+  //   width: 15%;
+  // }
+  ${(props) => props.theme.breakpoints.up('md')} {
+    width: 15%;
+  }
+
+  position: relative;
+  object-fit: contain;
+  max-height: 100%;
+  // padding: 0.5rem 1rem;
 `;
 
 const HamburgerContainer = styled.div`
   ${(props) => props.theme.breakpoints.up('md')} {
     display: none;
   }
-`;
-
-const StyledDrawer = styled(Drawer)`
-  width: 240px;
-`;
-
-const DrawerList = styled(List)`
-  width: 240px;
 `;
