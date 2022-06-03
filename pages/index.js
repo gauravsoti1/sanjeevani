@@ -8,8 +8,8 @@ import Testimonials from '../components/Testimonials';
 import Seo from '../components/Seo';
 import dynamic from 'next/dynamic';
 import Skeleton from '@material-ui/lab/Skeleton';
+import YoutubeChannel from '../components/YoutubeChannel';
 // import useInView from 'react-cool-inview';
-
 const LocationComponent = dynamic(
   () => import('../components/LocationComponent'),
   {
@@ -44,6 +44,7 @@ export default function Home(props) {
         {/* </BannerContainer> */}
       </main>
       <Insurances />
+      <YoutubeChannel />
       <Services />
       <Testimonials />
       <LocationComponent />
