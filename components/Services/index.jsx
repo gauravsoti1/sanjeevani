@@ -26,7 +26,7 @@ export default function Services() {
   const selectedService = services[selectedServiceIndex];
   return (
     <Section id="specialities">
-      <Section.Heading>Specialities</Section.Heading>
+      <Section.Heading color="blue">Specialities</Section.Heading>
       <Container>
         <ServicesList
           selectedServiceIndex={selectedServiceIndex}

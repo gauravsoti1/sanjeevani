@@ -39,7 +39,7 @@ export default function HeroSection() {
             // src="/heroImage.svg"
             src={drNarender}
             alt="Dr Narender"
-            layout="responsive"
+            layout="fill"
             objectFit="contain"
           />
         </HeroImageContainer>
@@ -74,9 +74,9 @@ const HeroImageContainer = styled.div`
   // display: none;
   // width: 100%;
   height: 35vh;
+  position: relative;
   ${(props) => props.theme.breakpoints.up('sm')} {
     display: block;
-    position: relative;
     height: 70%;
     flex-basis: 50%;
   }

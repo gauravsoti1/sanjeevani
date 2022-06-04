@@ -13,29 +13,29 @@ const TelephoneLinkContainer = styled.div`
 `;
 
 const menuItems = [
-  <Link href="/" color="inherit">
+  <Link href="/" color="inherit" variant="body1">
     Home
   </Link>,
   // TODO: add tel href only when it is on mobile
   <TelephoneLinkContainer key="telephoneMenuItem">
     <AddIcCallIcon color="secondary" fontSize="small" />
-    <Link color="secondary" href="tel:+919254344556">
+    <Link color="secondary" href="tel:+919254344556" variant="body1">
       +91-9254344556
     </Link>
   </TelephoneLinkContainer>,
-  <Link color="inherit" href="/team">
+  <Link color="inherit" href="/team" variant="body1">
     Team
   </Link>,
-  <Link color="inherit" href="/#specialities">
+  <Link color="inherit" href="/#specialities" variant="body1">
     Specialities
   </Link>,
-  <Link color="inherit" href="/gallery">
+  <Link color="inherit" href="/gallery" variant="body1">
     Gallery
   </Link>,
-  <Link color="inherit" href="/blogs">
+  <Link color="inherit" href="/blogs" variant="body1">
     Blog
   </Link>,
-  <Link color="inherit" href="/#aboutUs">
+  <Link color="inherit" href="/#aboutUs" variant="body1">
     About Us
   </Link>,
 ];

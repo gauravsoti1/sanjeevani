@@ -37,17 +37,15 @@ export default function Testimonials() {
   );
 }
 
-const StyledSection = styled(Section)`
-  // background: ${(props) => props.theme.palette.blue.main};
-  background: linear-gradient(
-    180deg,
-    #daf2e4 0%,
-    rgba(218, 242, 228, 0.5) 100%
-  );
-  // height: 80vh;
+const StyledSection = styled.section`
+  background: ${({ theme }) => theme.palette.primary.light};
+  // background: linear-gradient(
+  //   180deg,
+  //   ${({ theme }) => theme.palette.primary.light} 0%,
+  //   ${({ theme }) => theme.palette.primary.main} 100%
+  // );
   left: 0;
-  min-height: 90vh;
-  padding-top: 4rem;
+  padding: 4rem;
 `;
 
 const Container = styled.div`
@@ -59,7 +57,7 @@ const Container = styled.div`
 
 const ContentNavigation = styled.div`
   ${(props) => props.theme.breakpoints.up('lg')} {
-    flex-basis: 40%;
+    flex-basis: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,8 +69,9 @@ const ContentNavigation = styled.div`
 const TestimonialsContainer = styled.div`
   margin-top: 2rem;
   ${(props) => props.theme.breakpoints.up('lg')} {
-    flex-basis: 60%;
+    flex-basis: 50%;
     margin-top: 0;
+    text-align: right;
   }
   display: grid;
   // grid-template-columns: 1fr 1fr;

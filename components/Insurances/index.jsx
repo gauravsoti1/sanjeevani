@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function Insurances() {
   return (
     <Section>
-      <Section.Heading gutterBottom={true} color="blue">
+      <Section.Heading gutterBottom={true} color="primary">
         Insurances
       </Section.Heading>
       <DescriptionContainer>
