@@ -19,8 +19,8 @@ const menuItems = [
   // TODO: add tel href only when it is on mobile
   <TelephoneLinkContainer key="telephoneMenuItem">
     <AddIcCallIcon color="secondary" fontSize="small" />
-    <Link color="secondary" href="tel:+919254344556" variant="body1">
-      +91-9254344556
+    <Link color="secondary" href="tel:+918750542999" variant="body1">
+      +91-8750542999
     </Link>
   </TelephoneLinkContainer>,
   <Link color="inherit" href="/team" variant="body1">

@@ -12,7 +12,7 @@ export default function WhatsappFAB() {
     <Container>
       <Fab
         color="primary"
-        href="https://wa.me/919254344556?text=I'm%20interested%20in%20booking%20an%20appointment%20"
+        href="https://wa.me/918750542999?text=I'm%20interested%20in%20booking%20an%20appointment%20"
       >
         <CustomColorWhatsappIcon color="white" />
       </Fab>

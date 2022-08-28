@@ -18,6 +18,10 @@ const LocationComponent = dynamic(
   }
 );
 
+const Empanelment = dynamic(() => import('../components/Empanelment'), {
+  loading: () => <Skeleton variant="rect" animation="wave" height={300} />,
+});
+
 const Insurances = dynamic(() => import('../components/Insurances'), {
   loading: () => <Skeleton variant="rect" animation="wave" height={300} />,
 });
@@ -43,6 +47,7 @@ export default function Home(props) {
         <HeroSection />
         {/* </BannerContainer> */}
       </main>
+      <Empanelment />
       <Insurances />
       <YoutubeChannel />
       <Services />

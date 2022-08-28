@@ -20,8 +20,8 @@ const Address = () => (
         01262-280006
       </Link>{' '}
       /{' '}
-      <Link variant="body1" href="tel:+919254344556">
-        +91-9254344556
+      <Link variant="body1" href="tel:+918750542999">
+        +91-8750542999
       </Link>
       {/* </div> */}
     </Typography>
