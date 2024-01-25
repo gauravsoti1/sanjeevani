@@ -1,21 +1,21 @@
-import React from 'react';
-import Image from 'next/image';
-import styled from 'styled-components';
-import Section from './Section';
-import { Typography } from '@material-ui/core';
+import React from "react";
+import Image from "next/image";
+import styled from "styled-components";
+import Section from "./Section";
+import { Typography } from "@material-ui/core";
 
 const empanelmentData = [
   {
-    key: 'haryanaGov',
-    src: '/empanalment/haryanaGovernmentLogo.png',
-    width: '220px',
-    height: '310px',
+    key: "haryanaGov",
+    src: "/empanalment/haryanaGovernmentLogo.png",
+    width: "220",
+    height: "310",
   },
   {
-    key: 'ayushmanBharat',
-    src: '/empanalment/ayushmanBharatLogo.png',
-    width: '316px',
-    height: '316px',
+    key: "ayushmanBharat",
+    src: "/empanalment/ayushmanBharatLogo.png",
+    width: "316",
+    height: "316",
   },
 ];
 
@@ -29,8 +29,6 @@ const Empanelment = () => {
             <Image
               key={key}
               src={src}
-              width={width}
-              height={height}
               layout="fill"
               objectFit="contain"
               placeholder="blur"
@@ -49,7 +47,7 @@ const Empanelment = () => {
 
 const StyledSection = styled(Section)`
   min-height: 45vh;
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     min-height: 80vh;
   }
 `;
@@ -63,7 +61,7 @@ const EmpanelmentContainers = styled.div`
   position: relative;
   height: 20vh;
   padding-bottom: 16px;
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     height: 40vh;
     padding-bottom: 48px;
   }

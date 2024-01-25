@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Typography } from '@material-ui/core';
-import Image from 'next/image';
-import Section from './Section';
-import heroImage from '../public/heroImage.svg';
-import drNarender from '../public/drnarender.jpeg';
+import React from "react";
+import styled from "styled-components";
+import { Typography } from "@material-ui/core";
+import Image from "next/image";
+import Section from "./Section";
+import heroImage from "../public/heroImage.svg";
+import drNarender from "../public/drnarender.jpeg";
 
 const BackgroundShadow = () => [
   <BackgroundShadowEllipseTop key="shadow1" />,
@@ -36,7 +36,6 @@ export default function HeroSection() {
         <HeroImageContainer>
           <Image
             priority={true}
-            // src="/heroImage.svg"
             src={drNarender}
             alt="Dr Narender"
             layout="fill"
@@ -52,7 +51,7 @@ const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     height: 85vh;
     flex-direction: row;
     align-items: center;
@@ -64,7 +63,7 @@ const Container = styled.div`
 const HeroTextContainer = styled.div`
   width: 100%;
   text-align: center;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     text-align: left;
     flex-basis: 50%;
   }
@@ -72,10 +71,9 @@ const HeroTextContainer = styled.div`
 
 const HeroImageContainer = styled.div`
   // display: none;
-  // width: 100%;
   height: 35vh;
   position: relative;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     display: block;
     height: 70%;
     flex-basis: 50%;
@@ -90,7 +88,7 @@ const BackgroundShadowEllipseTop = styled.div`
   position: absolute;
   top: 4vh;
   height: 40%;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     top: 4vh;
     height: 70%;
   }
@@ -105,7 +103,7 @@ const BackgroundShadowEllipseBottom = styled.div`
   width: 55%;
   height: 30%;
   top: calc(4vh + 35%);
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     height: 50%;
     top: calc(4vh + 45%);
   }
@@ -118,7 +116,7 @@ const BackgroundShadowEllipseBottom = styled.div`
 const StyledSection = styled(Section)`
   overflow-x: clip;
   padding-top: 10vh;
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     padding-top: 15vh;
     overflow-x: inherit;
   }

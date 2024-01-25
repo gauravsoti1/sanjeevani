@@ -1,10 +1,11 @@
-import { Typography } from '@material-ui/core';
-import { useRouter } from 'next/router';
-import React from 'react';
-import styled from 'styled-components';
-import TeamMemberComponent from '../../components/TeamMemberComponent';
-import { useTeamMembers } from '../../lib/swr-hooks';
-import TeamLoadingCard from './TeamLoadingCard';
+import { Typography } from "@material-ui/core";
+import { useRouter } from "next/router";
+import React from "react";
+import styled from "styled-components";
+import TeamMemberComponent from "../../components/TeamMemberComponent";
+import { useTeamMembers } from "../../lib/swr-hooks";
+import TeamLoadingCard from "./TeamLoadingCard";
+import PageBreadcrumbs from "../../components/PageBreadcrumbs";
 
 export default function team() {
   const { team, isLoading, isError } = useTeamMembers();
@@ -18,6 +19,12 @@ export default function team() {
 
   return (
     <Container>
+      <PageBreadcrumbs
+        links={[
+          { label: "Home", href: "/", isCurrentPage: false },
+          { label: "Team", isCurrentPage: true },
+        ]}
+      />
       <Typography align="center" variant="h3" component="h1" color="primary">
         Our Team
       </Typography>
@@ -47,7 +54,9 @@ export default function team() {
 }
 
 const Container = styled.div`
-  padding-top: 15vh;
+  padding: 15vh 2rem 2rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const TeamContainer = styled.div`
@@ -55,13 +64,13 @@ const TeamContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   padding: 0 2rem;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     grid-template-columns: 1fr 1fr;
   }
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     padding: 0;
   }
   grid-column-gap: 5%;

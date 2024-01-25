@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
+import React from "react";
+import styled from "styled-components";
+import Image from "next/image";
 // import galleryData from './galleryData';
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-import { IconButton, Typography } from '@material-ui/core';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import { IconButton, Typography } from "@material-ui/core";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
 export default function GalleryComponent({ media = [] }) {
   const [currentSlide, setCurrentSlide] = React.useState(0);
@@ -60,7 +60,7 @@ export default function GalleryComponent({ media = [] }) {
             onClick={() => {
               slider.moveToSlideRelative(idx);
             }}
-            color={currentSlide === idx ? 'primary' : 'textSecondary'}
+            color={currentSlide === idx ? "primary" : "textSecondary"}
           >
             <FiberManualRecordIcon />
           </IconButton>
@@ -87,15 +87,9 @@ export default function GalleryComponent({ media = [] }) {
           {media.map((m, index) => (
             <ThumbnailContainer
               className={`keen-slider__slide number-slide${index}`}
-              key={'gallery' + index}
+              key={"gallery" + index}
             >
-              <Image
-                // width={m.imageWidth}
-                // height={m.imageHeight}
-                src={m.imageUrl}
-                layout="fill"
-                objectFit="contain"
-              />
+              <Image src={m.imageUrl} fill objectFit="contain" alt={m.alt} />
             </ThumbnailContainer>
           ))}
         </SliderContainer>
@@ -120,7 +114,7 @@ const SliderAndIconsContainer = styled.div`
   // align-items: center;
   height: 100%;
   position: relative;
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     margin: 0 4rem;
   }
   background: rgba(0, 0, 0, 0.9);

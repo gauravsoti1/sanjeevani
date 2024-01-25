@@ -1,12 +1,13 @@
-import React from 'react';
-import BlogView from '../../components/Blog/BlogView';
-import { getBlogPathname, useBlog } from '../../lib/swr-hooks';
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import fetchApi from '../../lib/fetchApi';
-import Blog from '../../models/Blog';
-import Seo from '../../components/Seo';
-import styled from 'styled-components';
+import React from "react";
+import BlogView from "../../components/Blog/BlogView";
+import { getBlogPathname, useBlog } from "../../lib/swr-hooks";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import fetchApi from "../../lib/fetchApi";
+import Blog from "../../models/Blog";
+import Seo from "../../components/Seo";
+import styled from "styled-components";
+import PageBreadcrumbs from "../../components/PageBreadcrumbs";
 
 export default function BlogDetail({ blog }) {
   // const router = useRouter();
@@ -26,6 +27,19 @@ export default function BlogDetail({ blog }) {
         description={blog.description}
         keywords={blog.keywords}
       />
+      <BreadcrumbsContainer>
+        <PageBreadcrumbs
+          links={[
+            { label: "Home", href: "/", isCurrentPage: false },
+            { label: "Blog", href: "/blogs", isCurrentPage: false },
+            {
+              label: blog.title,
+              href: `/blogs/${blog.slug}`,
+              isCurrentPage: true,
+            },
+          ]}
+        />
+      </BreadcrumbsContainer>
       <BlogView {...blog} />,
     </Container>
   );
@@ -40,4 +54,8 @@ export async function getServerSideProps(context) {
 
 const Container = styled.div`
   padding-top: 18vh;
+`;
+
+const BreadcrumbsContainer = styled.div`
+  margin: 0rem 0rem 2rem 3rem;
 `;

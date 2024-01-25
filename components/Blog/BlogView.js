@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import dynamic from 'next/dynamic';
-import { Box } from '@material-ui/core';
-import styled from 'styled-components';
-import Image from 'next/image';
-import MarkdownDisplay from '../MarkdownDisplay';
+import dynamic from "next/dynamic";
+import { Box } from "@material-ui/core";
+import styled from "styled-components";
+import Image from "next/image";
+import MarkdownDisplay from "../MarkdownDisplay";
 
 // const ReactMarkdown = dynamic(
 //   () => import('react-markdown').then((module) => module),
@@ -47,6 +47,8 @@ export default function BlogView({
 
 const Container = styled.div`
   padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const ImageContainer = styled.div`

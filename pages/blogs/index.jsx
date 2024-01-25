@@ -1,21 +1,15 @@
-import React from 'react';
-// import { signIn, useSession } from 'next-auth/client';
-import { useBlogs } from '../../lib/swr-hooks';
-// import BlogView from '../components/Blog/BlogView';
-import styled from 'styled-components';
-import BlogThumbnail from '../../components/Blog/BlogThumbnail';
-import { Typography } from '@material-ui/core';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useBlogs } from "../../lib/swr-hooks";
+import styled from "styled-components";
+import BlogThumbnail from "../../components/Blog/BlogThumbnail";
+import { useRouter } from "next/router";
+import PageBreadcrumbs from "../../components/PageBreadcrumbs";
+import TeamLoadingCard from "../team/TeamLoadingCard";
 
 export default function BlogList() {
   // const [session, loading] = useSession();
   const router = useRouter();
   const { blogs = [], isLoading } = useBlogs();
-
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   function onClick(path) {
     router.push(path);
@@ -23,18 +17,32 @@ export default function BlogList() {
 
   return (
     <Container>
+      <PageBreadcrumbs
+        links={[
+          { label: "Home", href: "/", isCurrentPage: false },
+          { label: "Blog", isCurrentPage: true },
+        ]}
+      />
       <BlogsContainer>
-        {blogs.map((blog) => (
-          // <Link href={}>
-          <BlogThumbnail
-            onClick={onClick.bind(
-              null,
-              `/blogs/${encodeURIComponent(blog.slug)}`
-            )}
-            {...blog}
-          />
-          // </Link>
-        ))}
+        {isLoading ? (
+          <>
+            <TeamLoadingCard />
+            <TeamLoadingCard />
+            <TeamLoadingCard />
+          </>
+        ) : (
+          blogs.map((blog) => (
+            // <Link href={}>
+            <BlogThumbnail
+              onClick={onClick.bind(
+                null,
+                `/blogs/${encodeURIComponent(blog.slug)}`
+              )}
+              {...blog}
+            />
+            // </Link>
+          ))
+        )}
       </BlogsContainer>
     </Container>
   );
@@ -43,17 +51,20 @@ export default function BlogList() {
 const Container = styled.div`
   padding: 2rem;
   padding-top: 14vh;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const BlogsContainer = styled.div`
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr;
 
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     grid-template-columns: 1fr 1fr;
   }
 
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     grid-template-columns: 1fr 1fr 1fr;
   }
 

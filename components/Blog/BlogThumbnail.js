@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
+import React from "react";
+import styled from "styled-components";
+import Image from "next/image";
 import {
   Box,
   Card,
@@ -8,7 +8,7 @@ import {
   CardContent,
   CardMedia,
   Typography,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 export default function BlogThumbnail({
   className,
@@ -19,20 +19,11 @@ export default function BlogThumbnail({
   thumbnailWidth,
   onClick,
 }) {
-  // const url =
-  //   process.env.CMS_MEDIA_URL || 'http://localhost:1337' + thumbnailUrl;
-  // console.log('url = ', url);
   return (
     <Container className={className} onClick={onClick}>
       <CardActionArea>
         <ImageContainer>
-          <Image
-            src={thumbnailUrl}
-            layout="fill"
-            height={thumbnailHeight}
-            width={thumbnailWidth}
-            objectFit="cover"
-          />
+          <Image src={thumbnailUrl} layout="fill" objectFit="cover" />
         </ImageContainer>
         <CardContent>
           <Typography noWrap={true} variant="h6" gutterBottom>
@@ -42,11 +33,6 @@ export default function BlogThumbnail({
             {description}
           </DescriptionBox>
         </CardContent>
-        {/* <CardMedia
-            component={
-              
-            }
-          /> */}
       </CardActionArea>
     </Container>
   );
@@ -61,7 +47,6 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 30vh;
   position: relative;
-  // object-fit: cover;
 `;
 
 const TextBox = styled(Box)`

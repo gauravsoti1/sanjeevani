@@ -6,22 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "migrate": "node scripts/migrate-db.js"
+    "migrate": "node scripts/migrate-db.js",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "bad-words": "^3.0.4",
+    "eslint-config-next": "^13.5.6",
     "framer-motion": "^4.1.17",
     "keen-slider": "^5.5.1",
-    "next": "^11.1.2",
+    "next": "^13.5.6",
     "next-auth": "^3.29.0",
     "next-transpile-modules": "^8.0.0",
     "nprogress": "^0.2.0",
-    "react": "17.0.2",
+    "react": "^18.2.0",
     "react-cool-inview": "^2.0.7",
-    "react-dom": "17.0.2",
+    "react-dom": "^18.2.0",
     "react-markdown": "^7.0.1",
     "remark-gfm": "^2.0.0",
     "serverless-mysql": "^1.5.4",
@@ -30,10 +32,12 @@
     "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^10.0.1",
     "@testing-library/dom": "^7.31.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "babel-jest": "^27.0.2",
+    "cypress": "^13.6.3",
     "jest": "^27.0.4",
     "jest-dom": "^4.0.0"
   }

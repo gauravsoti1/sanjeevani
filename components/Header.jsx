@@ -1,12 +1,12 @@
-import React from 'react';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Drawer, List } from '@material-ui/core';
-import styled from 'styled-components';
-import Image from 'next/image';
-import logo from '../public/logo.png';
-import nabhLogo from '../public/nabhLogo.png';
-import HamburgerDrawer, { menuItemsComponent } from './HamburgerDrawer';
+import React from "react";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import { Drawer, List } from "@material-ui/core";
+import styled from "styled-components";
+import Image from "next/image";
+import logo from "../public/logo.png";
+import nabhLogo from "../public/nabhLogo.png";
+import HamburgerDrawer, { menuItemsComponent } from "./HamburgerDrawer";
 
 export default function Header() {
   // const classes = useStyles();
@@ -30,6 +30,7 @@ export default function Header() {
             src={logo}
             alt="Sanjeevani Logo"
             // layout="responsive"
+            layout="fill"
             objectFit="contain"
             priority={true}
             // placeholder="blur"
@@ -40,6 +41,7 @@ export default function Header() {
           <Image
             src={nabhLogo}
             alt="NABH Logo"
+            layout="fill"
             objectFit="contain"
             priority={true}
           />
@@ -59,36 +61,37 @@ const Container = styled.div`
   position: absolute;
   height: 10vh;
   align-items: flex-start;
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     align-items: center;
   }
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     height: 15vh;
   }
   width: 100%;
   z-index: 5;
-  padding: 1rem;
+  padding: 0.5rem;
 `;
 
 const Logos = styled.div`
   flex-basis: 80%;
   display: flex;
   align-items: center;
-  ${(props) => props.theme.breakpoints.up('sm')} {
+  ${(props) => props.theme.breakpoints.up("sm")} {
     flex-basis: 60%;
   }
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     flex-basis: 45%;
   }
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     flex-basis: 30%;
   }
   padding: 0.5rem 1rem;
+  height: 100%;
 `;
 
 const MenuItems = styled.div`
   display: none;
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     display: flex;
     flex-basis: 60%;
     justify-content: space-evenly;
@@ -99,39 +102,39 @@ const LogoContainer = styled.div`
   display: inline-block;
   width: 50%;
   margin-right: 1rem;
-  // ${(props) => props.theme.breakpoints.up('sm')} {
+  // ${(props) => props.theme.breakpoints.up("sm")} {
   //   width: 35%;
   // }
-  // ${(props) => props.theme.breakpoints.up('md')} {
+  // ${(props) => props.theme.breakpoints.up("md")} {
   //   width: 30%;
   // }
-  ${(props) => props.theme.breakpoints.up('lg')} {
+  ${(props) => props.theme.breakpoints.up("lg")} {
     width: 70%;
   }
   position: relative;
   object-fit: contain;
-  max-height: 100%;
+  height: 100%;
   // padding: 0.5rem 1rem;
 `;
 
 const NABHLogoContainer = styled.div`
   display: inline-block;
   width: 12.5%;
-  // ${(props) => props.theme.breakpoints.up('sm')} {
+  // ${(props) => props.theme.breakpoints.up("sm")} {
   //   width: 15%;
   // }
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     width: 15%;
   }
 
   position: relative;
   object-fit: contain;
-  max-height: 100%;
+  height: 100%;
   // padding: 0.5rem 1rem;
 `;
 
 const HamburgerContainer = styled.div`
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     display: none;
   }
 `;

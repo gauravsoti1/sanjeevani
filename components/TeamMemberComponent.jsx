@@ -1,7 +1,7 @@
-import { Card, CardActions, CardContent, Typography } from '@material-ui/core';
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
+import { Card, CardActions, CardContent, Typography } from "@material-ui/core";
+import React from "react";
+import styled from "styled-components";
+import Image from "next/image";
 
 export default function TeamMemberComponent({
   name,
@@ -12,17 +12,12 @@ export default function TeamMemberComponent({
   description,
   onClick,
 }) {
+  console.log("imageUrl", imageUrl);
   return (
     <Container onClick={onClick}>
       {/* <CardActions> */}
       <ImageContainer>
-        <Image
-          src={imageUrl}
-          height={imageHeight}
-          width={imageWidth}
-          layout="fill"
-          objectFit="contain"
-        />
+        <Image src={imageUrl} layout="fill" objectFit="contain" />
       </ImageContainer>
       <CardContent>
         <Typography align="center" variant="h6" component="h2">
@@ -48,11 +43,11 @@ const Container = styled(Card)`
 
 const ImageContainer = styled.div`
   height: 30vh;
-  ${(props) => props.theme.breakpoints.up('md')} {
+  ${(props) => props.theme.breakpoints.up("md")} {
     height: 20vh;
   }
-  ${(props) => props.theme.breakpoints.up('lg')} {
-    height: 45vh;
+  ${(props) => props.theme.breakpoints.up("lg")} {
+    height: 40vh;
   }
   position: relative;
   background: black;

@@ -1,26 +1,27 @@
-import Head from 'next/head';
-import { StylesProvider, MuiThemeProvider } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
-import styled, { ThemeProvider } from 'styled-components';
-import theme from '../styles/theme';
-import 'simplemde/dist/simplemde.min.css';
-import { useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import NProgress from 'nprogress';
-import Router from 'next/router';
-import '../styles/nprogress.css';
-import nProgress from 'nprogress';
+import Head from "next/head";
+import { StylesProvider, MuiThemeProvider } from "@material-ui/core/styles";
+import { CssBaseline } from "@material-ui/core";
+import styled, { ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
+import "simplemde/dist/simplemde.min.css";
+import { useEffect } from "react";
+import dynamic from "next/dynamic";
+import NProgress from "nprogress";
+import Router from "next/router";
+import "../styles/nprogress.css";
+import nProgress from "nprogress";
+import "../styles/globals.css";
 
-Router.events.on('routeChangeStart', nProgress.start);
-Router.events.on('routeChangeError', nProgress.done);
-Router.events.on('routeChangeComplete', nProgress.done);
+Router.events.on("routeChangeStart", nProgress.start);
+Router.events.on("routeChangeError", nProgress.done);
+Router.events.on("routeChangeComplete", nProgress.done);
 
-const WhatsappFAB = dynamic(() => import('../components/WhatsappFAB'));
-const Header = dynamic(() => import('../components/Header'));
+const WhatsappFAB = dynamic(() => import("../components/WhatsappFAB"));
+const Header = dynamic(() => import("../components/Header"));
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles && jssStyles.parentNode)
       jssStyles.parentNode.removeChild(jssStyles);
   });
@@ -62,6 +63,7 @@ const Container = styled.div`
   margin: 0 auto;
   width: 100%;
   position: relative;
+  scroll-behavior: smooth;
 `;
 
 export default MyApp;
